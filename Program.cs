@@ -17,6 +17,8 @@ namespace IntegradoraPOO
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            //cambio que se hizo desde local
         }
     }
 }
