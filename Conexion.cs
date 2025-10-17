@@ -10,10 +10,10 @@ namespace IntegradoraPOO
     {
         public static MySqlConnection conexion()
         {
-            string servidor = "127.0.0.1";
+            string servidor = "10.1.124.35";
             string bd = "chismes";
-            string user = "root";
-            string password = "";
+            string user = "vivianos";
+            string password = "vivianos123";
             string port = "3310";
 
             string cadenaConexion = $"SERVER=" + servidor + ";DATABASE=" + bd + ";UID=" + user + ";PASSWORD=" + password + ";PORT=" + port;
