@@ -55,12 +55,7 @@
             this.UsuarioText.Name = "UsuarioText";
             this.UsuarioText.Size = new System.Drawing.Size(438, 31);
             this.UsuarioText.TabIndex = 1;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+
             // 
             // ContraText
             // 
@@ -89,6 +84,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Entrar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
