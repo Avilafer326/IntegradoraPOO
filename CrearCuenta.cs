@@ -22,7 +22,7 @@ namespace IntegradoraPOO
         MySqlConnection connection = Conexion.conexion();
         MySqlCommand codigo = new MySqlCommand();
        
-        string dominioCorreo = "@utch.com.edu.mx";
+        string dominioCorreo = "@utch.edu.mx";
         public bool ContieneMayuscula(string contrasena)
         {
             string patronMayuscula = @"^.*[A-Z].*$";
