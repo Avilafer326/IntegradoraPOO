@@ -21,8 +21,8 @@ namespace IntegradoraPOO
         }
         MySqlConnection connection = Conexion.conexion();
         MySqlCommand codigo = new MySqlCommand();
-       
-        string dominioCorreo = "@utch.com.edu.mx";
+
+        string dominioCorreo = "@utch.edu.mx";
         public bool ContieneMayuscula(string contrasena)
         {
             string patronMayuscula = @"^.*[A-Z].*$";
@@ -30,7 +30,7 @@ namespace IntegradoraPOO
         }
         public bool VerificarCorreo(string correo, string dominioInstitucional)
         {
-       
+
             return correo.ToLower().EndsWith(dominioInstitucional.ToLower());
         }
         public bool UsuarioOcupado(string newUser)
@@ -40,7 +40,7 @@ namespace IntegradoraPOO
 
             using (MySqlCommand comando = new MySqlCommand(cadena, connection))
             {
-     
+
                 comando.Parameters.AddWithValue("@user", newUser);
 
                 try
@@ -131,6 +131,11 @@ namespace IntegradoraPOO
             Form1 llamdainicio = new Form1();
             llamdainicio.Show();
             this.Close();
+
+        }
+
+        private void CrearCuenta_Load(object sender, EventArgs e)
+        {
 
         }
     }

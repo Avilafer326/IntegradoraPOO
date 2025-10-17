@@ -28,8 +28,6 @@ namespace IntegradoraPOO
                 Console.WriteLine(ex.Message);
                 return null;
             }
-         
         }
     }
-    
 }
