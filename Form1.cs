@@ -16,5 +16,15 @@ namespace IntegradoraPOO
         {
             InitializeComponent();
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
