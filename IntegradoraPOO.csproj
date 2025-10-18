@@ -102,6 +102,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="ControlConfiguracion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlInformacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlSubMenuDos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlSubMenuUno.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlTablero.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlTablero.Designer.cs">
+      <DependentUpon>ControlTablero.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,25 +132,40 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UsuarioVentana.cs">
+    <Compile Include="FormularioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsuarioVentana.Designer.cs">
-      <DependentUpon>UsuarioVentana.cs</DependentUpon>
+    <Compile Include="FormularioPrincipal.Designer.cs">
+      <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publicaciones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Publicaciones.Designer.cs">
+      <DependentUpon>Publicaciones.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ControlConfiguracion.resx">
+      <DependentUpon>ControlConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlInformacion.resx">
+      <DependentUpon>ControlInformacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlSubMenuUno.resx">
+      <DependentUpon>ControlSubMenuUno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlTablero.resx">
+      <DependentUpon>ControlTablero.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearCuenta.resx">
       <DependentUpon>CrearCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioPrincipal.resx">
+      <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -143,11 +176,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UsuarioVentana.resx">
-      <DependentUpon>UsuarioVentana.cs</DependentUpon>
+    <EmbeddedResource Include="Publicaciones.resx">
+      <DependentUpon>Publicaciones.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
