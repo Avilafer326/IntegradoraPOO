@@ -160,7 +160,7 @@ namespace IntegradoraPOO
             bool mostrarTexto = barraExpandida;
             botonTablero.Text = mostrarTexto ? "Tablero" : "T";
             botonMenuPrincipal.Text = mostrarTexto ? "Menú principal" : "M";
-            botonInformacion.Text = mostrarTexto ? "Información" : "I";
+            botonInformacion.Text = mostrarTexto ? "Crear Publicacion" : "CC";
             botonConfiguracion.Text = mostrarTexto ? "Configuración" : "C";
             botonSalir.Text = mostrarTexto ? "Salir" : "S";
             botonSubMenuUno.Text = mostrarTexto ? "Submenú 1" : "1";

@@ -182,7 +182,7 @@
             this.botonInformacion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.botonInformacion.Size = new System.Drawing.Size(158, 41);
             this.botonInformacion.TabIndex = 2;
-            this.botonInformacion.Text = "Información";
+            this.botonInformacion.Text = "Crear Publicacion";
             this.botonInformacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.botonInformacion.UseVisualStyleBackColor = true;
             this.botonInformacion.Click += new System.EventHandler(this.BotonInformacion_Click);
