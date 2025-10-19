@@ -14,14 +14,21 @@ namespace IntegradoraPOO
 {
     public partial class ControlTablero : UserControl
     {
-        public ControlTablero(string usaurio)
+        public  ControlTablero(string usaurio)
         {
+      
             InitializeComponent();
             CargarPublicaciones();
-        
-        }
+            if (flowLayoutPanel1 != null)
+            {
+                flowLayoutPanel1.Margin = new Padding(0);
+                flowLayoutPanel1.Padding = new Padding(0);
+            }
+            this.Padding = new Padding(0);
 
-     
+        }
+  
+
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             
@@ -63,8 +70,8 @@ namespace IntegradoraPOO
               
 
                     publicacionUC.Width = flowLayoutPanel1.ClientSize.Width;
-                    publicacionUC.AjustarAlturaContenido(); 
-           
+                    publicacionUC.AjustarAlturaContenido();
+               
                     flowLayoutPanel1.Controls.Add(publicacionUC);
                 }
             }
@@ -92,6 +99,15 @@ namespace IntegradoraPOO
                 }
             }
         }
- 
+
+        private void ControlTablero_Load(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
