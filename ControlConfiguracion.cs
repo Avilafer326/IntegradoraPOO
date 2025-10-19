@@ -41,9 +41,16 @@ namespace IntegradoraPOO
             // ControlConfiguracion
             // 
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ControlConfiguracion";
             this.Size = new System.Drawing.Size(453, 325);
+            this.Load += new System.EventHandler(this.ControlConfiguracion_Load);
             this.ResumeLayout(false);
+
+        }
+
+        private void ControlConfiguracion_Load(object sender, System.EventArgs e)
+        {
 
         }
     }
