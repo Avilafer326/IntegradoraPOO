@@ -81,7 +81,7 @@ namespace IntegradoraPOO
         {
             if (VerificarHash(ContraText.Text))
             {
-                UsuarioVentana llamadaUsuario = new UsuarioVentana();
+                FormularioPrincipal llamadaUsuario = new FormularioPrincipal(UsuarioText.Text);
                 llamadaUsuario.Show();
                 this.Hide();
             }
