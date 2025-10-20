@@ -62,7 +62,7 @@
             this.panelBarraLateral.Controls.Add(this.panelLogo);
             this.panelBarraLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBarraLateral.Location = new System.Drawing.Point(0, 0);
-            this.panelBarraLateral.Margin = new System.Windows.Forms.Padding(2);
+            this.panelBarraLateral.Margin = new System.Windows.Forms.Padding(0);
             this.panelBarraLateral.Name = "panelBarraLateral";
             this.panelBarraLateral.Size = new System.Drawing.Size(158, 488);
             this.panelBarraLateral.TabIndex = 0;

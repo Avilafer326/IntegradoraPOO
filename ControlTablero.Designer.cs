@@ -35,20 +35,24 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.publicaciones1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(592, 524);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(515, 524);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // publicaciones1
             // 
-            this.publicaciones1.Location = new System.Drawing.Point(0, 0);
+            this.publicaciones1.Location = new System.Drawing.Point(1, 0);
             this.publicaciones1.Margin = new System.Windows.Forms.Padding(0);
             this.publicaciones1.Name = "publicaciones1";
-            this.publicaciones1.Size = new System.Drawing.Size(696, 210);
+            this.publicaciones1.Size = new System.Drawing.Size(514, 224);
             this.publicaciones1.TabIndex = 0;
+            this.publicaciones1.Load += new System.EventHandler(this.publicaciones1_Load);
             // 
             // ControlTablero
             // 
@@ -58,7 +62,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ControlTablero";
-            this.Size = new System.Drawing.Size(592, 524);
+            this.Size = new System.Drawing.Size(515, 524);
             this.Load += new System.EventHandler(this.ControlTablero_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

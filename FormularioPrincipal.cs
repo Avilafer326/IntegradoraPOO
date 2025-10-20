@@ -19,18 +19,18 @@ namespace IntegradoraPOO
         public string usuariologeado;
 
         private ControlTablero controlTablero;
-        private readonly ControlInformacion controlInformacion = new ControlInformacion();
-        private readonly ControlConfiguracion controlConfiguracion = new ControlConfiguracion();
+        private ControlInformacion controlInformacion;
+        private ControlConfiguracion controlConfiguracion;
         private readonly ControlSubMenuUno controlSubMenuUno = new ControlSubMenuUno();
         private readonly ControlSubMenuDos controlSubMenuDos = new ControlSubMenuDos();
 
         public FormularioPrincipal(string usuario)
         {
+        
             InitializeComponent();
             usuariologeado = usuario;
             ConfigurarEstadoInicial();
-         
-         
+            controlTablero.CargarPublicaciones2();
         }
 
 
@@ -40,7 +40,8 @@ namespace IntegradoraPOO
         {
  
             controlTablero = new ControlTablero(usuariologeado);
-
+            controlInformacion = new ControlInformacion(usuariologeado);
+            controlConfiguracion = new ControlConfiguracion(usuariologeado);
             DoubleBuffered = true;
             panelBarraLateral.Width = AnchoBarraContraida;
             contenedorMenu.Height = AlturaMenuContraido;
@@ -108,7 +109,7 @@ namespace IntegradoraPOO
 
         private void BotonTablero_Click(object sender, EventArgs e)
         {
-            controlTablero.CargarPublicaciones();
+            controlTablero.CargarPublicaciones2();
             MostrarControl(controlTablero);
         }
 
@@ -134,12 +135,16 @@ namespace IntegradoraPOO
 
         private void BotonSalir_Click(object sender, EventArgs e)
         {
+            Form1 llamada = new Form1();
+            llamada.Show();
             Close();
         }
 
         private void BotonCerrar_Click(object sender, EventArgs e)
         {
+        
             Close();
+           
         }
 
         private void MostrarControl(UserControl control)
@@ -161,7 +166,7 @@ namespace IntegradoraPOO
             botonTablero.Text = mostrarTexto ? "Tablero" : "T";
             botonMenuPrincipal.Text = mostrarTexto ? "Menú principal" : "M";
             botonInformacion.Text = mostrarTexto ? "Crear Publicacion" : "CC";
-            botonConfiguracion.Text = mostrarTexto ? "Configuración" : "C";
+            botonConfiguracion.Text = mostrarTexto ? "Mis Publicaciones" : "MP";
             botonSalir.Text = mostrarTexto ? "Salir" : "S";
             botonSubMenuUno.Text = mostrarTexto ? "Submenú 1" : "1";
             botonSubMenuDos.Text = mostrarTexto ? "Submenú 2" : "2";
