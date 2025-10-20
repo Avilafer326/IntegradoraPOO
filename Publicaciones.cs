@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,20 @@ namespace IntegradoraPOO
 {
     public partial class Publicaciones : UserControl
     {
-        private int _idPublicacion;
+        
+      
         private string _usuarioLogueado;
         private DBHelper _dbHelper = new DBHelper();
+        int contador;
+        public delegate void PublicacionEliminadaHandler(object sender, EventArgs e);
+
+        // Define el evento que el control padre suscribirá
+        public event PublicacionEliminadaHandler PublicacionEliminada;
+
+        private int _idPublicacion;
         public Publicaciones(int idPublicacion, string usuario, string contenido, DateTime Fecha, string usuarioLogueado)
         {
+           
             InitializeComponent();
             _idPublicacion = idPublicacion;
             _usuarioLogueado = usuarioLogueado;
@@ -25,11 +35,15 @@ namespace IntegradoraPOO
             label2.Text = Fecha.ToString();
             LoadLikeStatus();
             AjustarAlturaContenido();
+            if (usuario == usuarioLogueado)
+            {
+                button3.Visible = true;
+            }
 
         }
         public void AjustarAlturaContenido()
         {
-     
+
             int padding = 10;
             int anchoMaximo = richTextBox1.Width;
 
@@ -44,7 +58,7 @@ namespace IntegradoraPOO
 
                 int alturaContenido = (int)Math.Ceiling(size.Height) + padding;
 
-          
+
                 richTextBox1.Height = alturaContenido;
             }
 
@@ -56,11 +70,11 @@ namespace IntegradoraPOO
 
             int margenInferiorFinal = 30;
 
-       
+
             this.Height = button1.Bottom + margenInferiorFinal;
         }
 
-      
+
         public Publicaciones()
         {
             InitializeComponent();
@@ -113,6 +127,61 @@ namespace IntegradoraPOO
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void button3_Click(object sender, EventArgs e)
+        {
+            contador++;
+            groupBox1.Visible = true;
+            if (contador == 2)
+            {
+                groupBox1.Visible = false;
+                contador = 0;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ControlTablero controlTablero = new ControlTablero(_usuarioLogueado);
+            string deleteQuery = @"
+        DELETE FROM publicacionestb 
+        WHERE id_publicacion = @PostId;";
+
+            using (MySqlConnection connection = Conexion.conexion())
+            {
+              ;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(deleteQuery, connection);
+
+                    // Usamos parámetros para seguridad
+                    cmd.Parameters.AddWithValue("@PostId", _idPublicacion);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Publicación eliminada exitosamente.");
+
+                        // **LÍNEA DE ACTUALIZACIÓN (Línea 159)**
+                        // 1. Ocultar el control eliminado
+                        this.Visible = false;
+
+                        // 2. Notificar al contenedor principal para que recargue la lista
+                        PublicacionEliminada?.Invoke(this, EventArgs.Empty);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: La publicación no fue encontrada.");
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error al eliminar la publicación: " + ex.Message);
+                }
+                
+            }
         }
     }
 }

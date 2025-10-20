@@ -18,9 +18,15 @@ namespace IntegradoraPOO
         private string usuariologeado;
         public  ControlTablero(string usuario)
         {
+           
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Name = "ControlConfiguracion";
+            this.Size = new System.Drawing.Size(400, 325);
+            this.Load += new System.EventHandler(this.ControlTablero_Load);
+            this.ResumeLayout(false);
             usuariologeado = usuario;
             InitializeComponent();
-            CargarPublicaciones();
+            CargarPublicaciones2();
             if (flowLayoutPanel1 != null)
             {
                 flowLayoutPanel1.Margin = new Padding(0);
@@ -35,7 +41,7 @@ namespace IntegradoraPOO
         {
             
         }
-        public void CargarPublicaciones()
+        public void CargarPublicaciones2()
         {
             // Limpiamos el FlowLayoutPanel antes de cargar nuevos datos
             flowLayoutPanel1.Controls.Clear();
@@ -114,6 +120,11 @@ namespace IntegradoraPOO
         }
 
         private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void publicaciones1_Load(object sender, EventArgs e)
         {
 
         }
