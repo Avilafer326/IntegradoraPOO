@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,6 +110,58 @@ namespace IntegradoraPOO
                     MessageBox.Show("Error al eliminar el like: " + ex.Message);
                 }
             }
+        }
+        public void AddComment(string nombreUsuario, int idPublicacion, string textoComentario)
+        {
+            string insertQuery = @"
+        INSERT INTO comentarios (fk_usuario, fk_idpubli, contenido, FechaComentado) 
+        VALUES (@User, @PostId, @Content, NOW());";
+
+            using (MySqlConnection connection = Conexion.conexion())
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                    cmd.Parameters.AddWithValue("@User", nombreUsuario);
+                    cmd.Parameters.AddWithValue("@PostId", idPublicacion);
+                    cmd.Parameters.AddWithValue("@Content", textoComentario);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Comentario publicado.");
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error al guardar el comentario: " + ex.Message);
+                }
+            }
+        }
+        public DataTable GetCommentsForPost(int idPublicacion)
+        {
+            DataTable dt = new DataTable();
+            string selectQuery = @"
+        SELECT fk_usuario, contenido, FechaComentado
+        FROM comentarios 
+        WHERE fk_idpubli = @PostId 
+        ORDER BY FechaComentado ASC;"; // Los más antiguos primero
+
+            using (MySqlConnection connection = Conexion.conexion())
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+                    cmd.Parameters.AddWithValue("@PostId", idPublicacion);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar comentarios: " + ex.Message);
+                }
+            }
+            return dt;
         }
     }
 }

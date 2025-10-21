@@ -102,6 +102,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="ControlComentario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlComentario.Designer.cs">
+      <DependentUpon>ControlComentario.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlConfiguracion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <Compile Include="Publicaciones.Designer.cs">
       <DependentUpon>Publicaciones.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControlComentario.resx">
+      <DependentUpon>ControlComentario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlConfiguracion.resx">
       <DependentUpon>ControlConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
