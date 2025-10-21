@@ -8,6 +8,7 @@ namespace IntegradoraPOO
 {
     internal class Conexion
     {
+
         public static MySqlConnection conexion()
         {
             string servidor = "127.0.0.1";
@@ -25,7 +26,7 @@ namespace IntegradoraPOO
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 return null;
             }
          

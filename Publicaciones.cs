@@ -18,6 +18,8 @@ namespace IntegradoraPOO
         private string _usuarioLogueado;
         private DBHelper _dbHelper = new DBHelper();
         int contador;
+        string palabraantesde;
+       
         public delegate void PublicacionEliminadaHandler(object sender, EventArgs e);
 
         // Define el evento que el control padre suscribirá
@@ -78,6 +80,8 @@ namespace IntegradoraPOO
         public Publicaciones()
         {
             InitializeComponent();
+            AjustarAlturaContenido();
+         
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -182,6 +186,75 @@ namespace IntegradoraPOO
                 }
                 
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            palabraantesde = richTextBox1.Text;
+            richTextBox1.ReadOnly = false;
+            richTextBox1.BackColor = Color.Gray;
+            richTextBox1.Text = "editalo";
+            button6.Visible = true;
+            button7.Visible = true;
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            ControlTablero controlTablero = new ControlTablero(_usuarioLogueado);
+            string EditQuery = @"
+            UPDATE publicacionestb
+            SET Contenido = @contenido
+            WHERE id_publicacion = @PostId";
+            using (MySqlConnection connection = Conexion.conexion())
+            {
+                ;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(EditQuery, connection);
+
+                    // Usamos parámetros para seguridad
+                    cmd.Parameters.AddWithValue("@PostId", _idPublicacion);
+                    cmd.Parameters.AddWithValue("contenido", richTextBox1.Text);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Publicación eliminada exitosamente.");
+                        this.Update();
+                        richTextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+                        groupBox1.Visible = false;
+                        button6.Visible = false;
+                        button7.Visible = false;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: La publicación no fue encontrada.");
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Error al eliminar la publicación: " + ex.Message);
+                }
+
+            }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            
+            richTextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            groupBox1.Visible = false;
+            button6.Visible = false;
+            button7.Visible = false;
+            richTextBox1.Text = palabraantesde;
+            this.Update();
+
         }
     }
 }

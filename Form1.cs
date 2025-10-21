@@ -71,7 +71,7 @@ namespace IntegradoraPOO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("error al intentar ingresar" );
+                MessageBox.Show("=" + ex );
                 return false;
             }
 
