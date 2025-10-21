@@ -13,14 +13,17 @@ namespace IntegradoraPOO
 {
     public partial class Publicaciones : UserControl
     {
-        
-      
+
+
         private string _usuarioLogueado;
         private DBHelper _dbHelper = new DBHelper();
         int contador;
         string palabraantesde;
-       
+
         public delegate void PublicacionEliminadaHandler(object sender, EventArgs e);
+
+        // 1. Define el delegado y el evento
+        public event EventHandler BotonPresionadoParaMostrarGroupBox;
 
         // Define el evento que el control padre suscribirá
         public event PublicacionEliminadaHandler PublicacionEliminada;
@@ -28,7 +31,7 @@ namespace IntegradoraPOO
         private int _idPublicacion;
         public Publicaciones(int idPublicacion, string usuario, string contenido, DateTime Fecha, string usuarioLogueado)
         {
-           
+
             InitializeComponent();
             _idPublicacion = idPublicacion;
             _usuarioLogueado = usuarioLogueado;
@@ -69,13 +72,13 @@ namespace IntegradoraPOO
             label3.Top = richTextBox1.Bottom + margenEntreControles;
             button1.Top = label3.Bottom + margenEntreControles;
             button2.Top = label3.Bottom + margenEntreControles;
-           
-            
+
+
 
             int margenInferiorFinal = 8;
 
 
-            this.Height = groupBox2.Height + margenInferiorFinal;
+            this.Height = button2.Bottom + margenInferiorFinal;
         }
 
 
@@ -83,7 +86,7 @@ namespace IntegradoraPOO
         {
             InitializeComponent();
             AjustarAlturaContenido();
-         
+
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -129,13 +132,16 @@ namespace IntegradoraPOO
         {
 
         }
+        protected virtual void OnBotonPresionadoParaMostrarGroupBox(EventArgs e)
+        {
+            BotonPresionadoParaMostrarGroupBox?.Invoke(this, e);
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             //comentarios
-            groupBox2.Visible = true;
-            button3.Visible = false;
-            CargarComentarios();
+            OnBotonPresionadoParaMostrarGroupBox(EventArgs.Empty);
+
         }
 
         public void button3_Click(object sender, EventArgs e)
@@ -158,7 +164,7 @@ namespace IntegradoraPOO
 
             using (MySqlConnection connection = Conexion.conexion())
             {
-              ;
+                ;
                 try
                 {
                     connection.Open();
@@ -189,7 +195,7 @@ namespace IntegradoraPOO
                 {
                     MessageBox.Show("Error al eliminar la publicación: " + ex.Message);
                 }
-                
+
             }
         }
 
@@ -253,10 +259,13 @@ namespace IntegradoraPOO
             }
 
         }
-
+        public int GetIdPublicacion()
+        {
+            return _idPublicacion;
+        }
         private void button7_Click(object sender, EventArgs e)
         {
-            
+
             richTextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             groupBox1.Visible = false;
             button6.Visible = false;
@@ -267,49 +276,5 @@ namespace IntegradoraPOO
             MessageBox.Show("Cancelado");
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(richTextBox2.Text))
-            {
-                _dbHelper.AddComment(_usuarioLogueado, _idPublicacion, richTextBox2.Text);
-                richTextBox2.Clear();
-                MessageBox.Show("comentario añadido");
-                groupBox2.Visible = false;
-                CargarComentarios();
-            }
-        }
-        public void CargarComentarios()
-        {
-            flowLayoutPanel1.Controls.Clear();
-
-            // Usamos el método de DBHelper para obtener los datos
-            DataTable comentariosDT = _dbHelper.GetCommentsForPost(_idPublicacion);
-
-            foreach (DataRow row in comentariosDT.Rows)
-            {
-                string usuario = row["fk_usuario"].ToString();
-                string contenido = row["contenido"].ToString();
-                DateTime fecha = (DateTime)row["FechaComentado"];
-
-                // 1. Crea el nuevo UserControl por cada comentario
-                ControlComentario commentUC = new ControlComentario(usuario, contenido, fecha);
-
-                // 2. Ajusta el tamaño para que llene el ancho del FlowLayoutPanel
-                commentUC.Width = flowLayoutPanel1.ClientSize.Width;
-                // Opcional: Si el control tiene un método para ajustar su propia altura
-                // commentUC.AjustarAltura(); 
-
-                // 3. Añade el control al panel
-                flowLayoutPanel1.Controls.Add(commentUC);
-            }
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            //boton quitar comentarios
-            groupBox2.Visible = false;
-            richTextBox2.Clear();
-
-        }
     }
 }
