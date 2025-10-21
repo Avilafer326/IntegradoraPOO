@@ -24,6 +24,8 @@ namespace IntegradoraPOO
         private readonly ControlSubMenuUno controlSubMenuUno = new ControlSubMenuUno();
         private readonly ControlSubMenuDos controlSubMenuDos = new ControlSubMenuDos();
 
+    
+      
         public FormularioPrincipal(string usuario)
         {
         
@@ -31,6 +33,7 @@ namespace IntegradoraPOO
             usuariologeado = usuario;
             ConfigurarEstadoInicial();
             controlTablero.CargarPublicaciones2();
+            
         }
 
 
@@ -82,7 +85,7 @@ namespace IntegradoraPOO
                 }
             }
         }
-
+       
         private void TransicionMenu_Tick(object sender, EventArgs e)
         {
             if (!menuExpandido)

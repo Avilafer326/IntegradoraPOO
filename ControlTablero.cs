@@ -9,13 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 
 namespace IntegradoraPOO
 {
     public partial class ControlTablero : UserControl
     {
+        
+    
+
+        int idPublicacion;
         private string usuariologeado;
+        private DBHelper _dbHelper = new DBHelper();
         public  ControlTablero(string usuario)
         {
            
@@ -33,9 +39,8 @@ namespace IntegradoraPOO
                 flowLayoutPanel1.Padding = new Padding(0);
             }
             this.Padding = new Padding(0);
-    
         }
-  
+
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -82,7 +87,7 @@ namespace IntegradoraPOO
                         usuariologeado // ¡Pasamos el usuario logueado!
                     );
 
-
+                    publicacionUC.BotonPresionadoParaMostrarGroupBox += PublicacionUC_BotonPresionadoParaMostrarGroupBox;
                     publicacionUC.Width = flowLayoutPanel1.ClientSize.Width;
                     publicacionUC.AjustarAlturaContenido();
                
@@ -113,6 +118,18 @@ namespace IntegradoraPOO
                 }
             }
         }
+        private void PublicacionUC_BotonPresionadoParaMostrarGroupBox(object sender, EventArgs e)
+        {
+            // 'sender' es la instancia de Publicaciones que disparó el evento.
+            if (sender is Publicaciones publicacion)
+            {
+                // El ID de la publicación está en la variable privada de la instancia.
+                int idDelPost = publicacion.GetIdPublicacion();
+
+                // Llama al método para mostrar el GroupBox en ControlTablero.
+                MostrarGroupBoxComentarios(idDelPost);
+            }
+        }
 
         private void ControlTablero_Load(object sender, EventArgs e)
         {
@@ -127,6 +144,67 @@ namespace IntegradoraPOO
         private void publicaciones1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        { 
+            //boton quitar comentarios
+            groupBox2.Visible = false;
+            richTextBox2.Clear();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //confirmar comentario
+            if (!string.IsNullOrEmpty(richTextBox2.Text))
+            {
+                _dbHelper.AddComment(usuariologeado, idPublicacion, richTextBox2.Text);
+                richTextBox2.Clear();
+                MessageBox.Show("comentario añadido");
+               
+                CargarComentarios();
+            }
+        }
+        public void CargarComentarios()
+        {
+            flowLayoutPanel2.Controls.Clear();
+
+            // Usamos el método de DBHelper para obtener los datos
+            DataTable comentariosDT = _dbHelper.GetCommentsForPost(idPublicacion);
+
+            foreach (DataRow row in comentariosDT.Rows)
+            {
+                string usuario = row["fk_usuario"].ToString();
+                string contenido = row["contenido"].ToString();
+                DateTime fecha = (DateTime)row["FechaComentado"];
+
+                // 1. Crea el nuevo UserControl por cada comentario
+                ControlComentario commentUC = new ControlComentario(usuario, contenido, fecha);
+
+                // 2. Ajusta el tamaño para que llene el ancho del FlowLayoutPanel
+                commentUC.Width = flowLayoutPanel2.ClientSize.Width;
+                // Opcional: Si el control tiene un método para ajustar su propia altura
+                // commentUC.AjustarAltura(); 
+
+                // 3. Añade el control al panel
+                flowLayoutPanel2.Controls.Add(commentUC);
+            }
+        }
+        public void SetGroupBoxState(bool isVisible)
+        {
+            // Asumiendo que tu GroupBox se llama 'groupBox1' en este control.
+            groupBox2.Visible = isVisible;
+        }
+        public void MostrarGroupBoxComentarios(int idPost)
+        {
+            // Almacena el ID de la publicación que disparó el evento para usarlo en button8_Click.
+            this.idPublicacion = idPost;
+            CargarComentarios();
+            // Muestra el GroupBox deseado
+            groupBox2.Visible = true;
+
+            // Opcional: Cargar comentarios del post actual si es necesario
+            // CargarComentarios(idPost); 
         }
     }
 }
