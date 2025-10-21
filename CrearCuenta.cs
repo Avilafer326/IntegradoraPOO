@@ -109,7 +109,7 @@ namespace IntegradoraPOO
                                     }
                                     catch (Exception ex)
                                     {
-                                        MessageBox.Show("error " + ex.ToString());
+                                        MessageBox.Show("error " + ex);
                                     }
                                     connection.Close();
                                 }

@@ -107,7 +107,7 @@ namespace IntegradoraPOO
                         usuario,
                         contenido,
                         fecha,
-                        usuariologeado // ¡Pasamos el usuario logueado!
+                        usuariologeado 
                     );
                     publicacionUC.PublicacionEliminada += RecargarPublicaciones;
 
@@ -117,6 +117,7 @@ namespace IntegradoraPOO
 
                     flowLayoutPanel1.Controls.Add(publicacionUC);
                 }
+
             }
             catch (MySqlException mySqlEx)
             {

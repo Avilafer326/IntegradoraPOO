@@ -111,16 +111,25 @@ namespace IntegradoraPOO
         {
             controlTablero.CargarPublicaciones2();
             MostrarControl(controlTablero);
+            controlTablero.CargarPublicaciones2();
+           
+           
+            
+    
         }
 
         private void BotonInformacion_Click(object sender, EventArgs e)
         {
+            
             MostrarControl(controlInformacion);
+          
         }
 
         private void BotonConfiguracion_Click(object sender, EventArgs e)
         {
+            controlConfiguracion.CargarPublicaciones();
             MostrarControl(controlConfiguracion);
+            controlConfiguracion.CargarPublicaciones();
         }
 
         private void BotonSubMenuUno_Click(object sender, EventArgs e)
