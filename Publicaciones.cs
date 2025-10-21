@@ -64,16 +64,18 @@ namespace IntegradoraPOO
                 richTextBox1.Height = alturaContenido;
             }
 
-            int margenEntreControles = 8;
+            int margenEntreControles = 15;
             label3.Top = richTextBox1.Bottom + margenEntreControles;
             label3.Top = richTextBox1.Bottom + margenEntreControles;
             button1.Top = label3.Bottom + margenEntreControles;
             button2.Top = label3.Bottom + margenEntreControles;
+           
+            
 
-            int margenInferiorFinal = 30;
+            int margenInferiorFinal = 8;
 
 
-            this.Height = button1.Bottom + margenInferiorFinal;
+            this.Height = groupBox2.Height + margenInferiorFinal;
         }
 
 
@@ -100,7 +102,7 @@ namespace IntegradoraPOO
             if (status.userLiked)
             {
                 // El usuario ya dio like (muestra el estado para QUITAR el like)
-                button1.Text = "❤️ Quitar Me Gusta";
+                button1.Text = "❤️ No me gusta";
             }
             else
             {
@@ -130,7 +132,10 @@ namespace IntegradoraPOO
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            //comentarios
+            groupBox2.Visible = true;
+            button3.Visible = false;
+            CargarComentarios();
         }
 
         public void button3_Click(object sender, EventArgs e)
@@ -223,7 +228,7 @@ namespace IntegradoraPOO
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Publicación eliminada exitosamente.");
+                        MessageBox.Show("editada");
                         this.Update();
                         richTextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
                         groupBox1.Visible = false;
@@ -240,7 +245,11 @@ namespace IntegradoraPOO
                 {
                     MessageBox.Show("Error al eliminar la publicación: " + ex.Message);
                 }
-
+                richTextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+                groupBox1.Visible = false;
+                button6.Visible = false;
+                button7.Visible = false;
+                richTextBox1.ReadOnly = true;
             }
 
         }
@@ -254,6 +263,52 @@ namespace IntegradoraPOO
             button7.Visible = false;
             richTextBox1.Text = palabraantesde;
             this.Update();
+            richTextBox1.ReadOnly = true;
+            MessageBox.Show("Cancelado");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(richTextBox2.Text))
+            {
+                _dbHelper.AddComment(_usuarioLogueado, _idPublicacion, richTextBox2.Text);
+                richTextBox2.Clear();
+                MessageBox.Show("comentario añadido");
+                groupBox2.Visible = false;
+                CargarComentarios();
+            }
+        }
+        public void CargarComentarios()
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            // Usamos el método de DBHelper para obtener los datos
+            DataTable comentariosDT = _dbHelper.GetCommentsForPost(_idPublicacion);
+
+            foreach (DataRow row in comentariosDT.Rows)
+            {
+                string usuario = row["fk_usuario"].ToString();
+                string contenido = row["contenido"].ToString();
+                DateTime fecha = (DateTime)row["FechaComentado"];
+
+                // 1. Crea el nuevo UserControl por cada comentario
+                ControlComentario commentUC = new ControlComentario(usuario, contenido, fecha);
+
+                // 2. Ajusta el tamaño para que llene el ancho del FlowLayoutPanel
+                commentUC.Width = flowLayoutPanel1.ClientSize.Width;
+                // Opcional: Si el control tiene un método para ajustar su propia altura
+                // commentUC.AjustarAltura(); 
+
+                // 3. Añade el control al panel
+                flowLayoutPanel1.Controls.Add(commentUC);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            //boton quitar comentarios
+            groupBox2.Visible = false;
+            richTextBox2.Clear();
 
         }
     }
