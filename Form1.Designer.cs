@@ -38,27 +38,31 @@
             this.button2 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // UsuarioLabel
             // 
             this.UsuarioLabel.AutoSize = true;
             this.UsuarioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsuarioLabel.Location = new System.Drawing.Point(63, 101);
+            this.UsuarioLabel.Location = new System.Drawing.Point(101, 22);
             this.UsuarioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UsuarioLabel.Name = "UsuarioLabel";
             this.UsuarioLabel.Size = new System.Drawing.Size(115, 31);
             this.UsuarioLabel.TabIndex = 0;
             this.UsuarioLabel.Text = "Usuario";
+            this.UsuarioLabel.Click += new System.EventHandler(this.UsuarioLabel_Click);
             // 
             // UsuarioText
             // 
             this.UsuarioText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsuarioText.Location = new System.Drawing.Point(41, 171);
+            this.UsuarioText.Location = new System.Drawing.Point(79, 92);
             this.UsuarioText.Margin = new System.Windows.Forms.Padding(4);
             this.UsuarioText.Name = "UsuarioText";
             this.UsuarioText.Size = new System.Drawing.Size(287, 37);
             this.UsuarioText.TabIndex = 1;
+            this.UsuarioText.TextChanged += new System.EventHandler(this.UsuarioText_TextChanged);
             // 
             // contextMenuStrip1
             // 
@@ -69,27 +73,29 @@
             // ContraText
             // 
             this.ContraText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContraText.Location = new System.Drawing.Point(41, 325);
+            this.ContraText.Location = new System.Drawing.Point(79, 246);
             this.ContraText.Margin = new System.Windows.Forms.Padding(4);
             this.ContraText.Name = "ContraText";
             this.ContraText.Size = new System.Drawing.Size(287, 37);
             this.ContraText.TabIndex = 4;
+            this.ContraText.TextChanged += new System.EventHandler(this.ContraText_TextChanged);
             // 
             // ContraLabel
             // 
             this.ContraLabel.AutoSize = true;
             this.ContraLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContraLabel.Location = new System.Drawing.Point(63, 253);
+            this.ContraLabel.Location = new System.Drawing.Point(101, 174);
             this.ContraLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ContraLabel.Name = "ContraLabel";
             this.ContraLabel.Size = new System.Drawing.Size(174, 31);
             this.ContraLabel.TabIndex = 3;
             this.ContraLabel.Text = "Contraseña:";
+            this.ContraLabel.Click += new System.EventHandler(this.ContraLabel_Click);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(101, 394);
+            this.button1.Location = new System.Drawing.Point(139, 315);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 66);
@@ -116,7 +122,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(231, 501);
+            this.linkLabel1.Location = new System.Drawing.Point(269, 422);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(126, 20);
             this.linkLabel1.TabIndex = 7;
@@ -129,33 +135,44 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(35, 501);
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(73, 422);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 20);
             this.label1.TabIndex = 8;
             this.label1.Text = "¿No tienes cuenta?";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Menu;
+            this.panel1.Controls.Add(this.UsuarioLabel);
+            this.panel1.Controls.Add(this.UsuarioText);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.ContraLabel);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.ContraText);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(39, 84);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(495, 482);
+            this.panel1.TabIndex = 9;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 625);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.ContraText);
-            this.Controls.Add(this.ContraLabel);
-            this.Controls.Add(this.UsuarioText);
-            this.Controls.Add(this.UsuarioLabel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -170,6 +187,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

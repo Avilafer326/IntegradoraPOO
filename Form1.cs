@@ -33,8 +33,8 @@ namespace IntegradoraPOO
 
         private void button2_Click(object sender, EventArgs e)
         {
-            llamdaCrear.Show();
-            this.Hide();
+            //llamdaCrear.Show();
+            //this.Hide();
         }
 
         private bool VerificarHash(string contra)
@@ -98,8 +98,8 @@ namespace IntegradoraPOO
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("¡LinkLabel clickeado!");
-            // Tu función aquí
+            llamdaCrear.Show();
+            this.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -211,6 +211,31 @@ namespace IntegradoraPOO
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UsuarioLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UsuarioText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ContraLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ContraText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
