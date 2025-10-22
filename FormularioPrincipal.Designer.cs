@@ -45,6 +45,7 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.transicionBarra = new System.Windows.Forms.Timer(this.components);
             this.transicionMenu = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panelBarraLateral.SuspendLayout();
             this.contenedorMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -54,6 +55,7 @@
             // panelBarraLateral
             // 
             this.panelBarraLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(37)))));
+            this.panelBarraLateral.Controls.Add(this.button1);
             this.panelBarraLateral.Controls.Add(this.botonSalir);
             this.panelBarraLateral.Controls.Add(this.contenedorMenu);
             this.panelBarraLateral.Controls.Add(this.botonConfiguracion);
@@ -64,7 +66,7 @@
             this.panelBarraLateral.Location = new System.Drawing.Point(0, 0);
             this.panelBarraLateral.Margin = new System.Windows.Forms.Padding(0);
             this.panelBarraLateral.Name = "panelBarraLateral";
-            this.panelBarraLateral.Size = new System.Drawing.Size(158, 488);
+            this.panelBarraLateral.Size = new System.Drawing.Size(211, 601);
             this.panelBarraLateral.TabIndex = 0;
             // 
             // botonSalir
@@ -74,11 +76,11 @@
             this.botonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonSalir.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonSalir.ForeColor = System.Drawing.Color.White;
-            this.botonSalir.Location = new System.Drawing.Point(0, 447);
-            this.botonSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.botonSalir.Location = new System.Drawing.Point(0, 551);
+            this.botonSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonSalir.Name = "botonSalir";
-            this.botonSalir.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.botonSalir.Size = new System.Drawing.Size(158, 41);
+            this.botonSalir.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.botonSalir.Size = new System.Drawing.Size(211, 50);
             this.botonSalir.TabIndex = 5;
             this.botonSalir.Text = "Salir";
             this.botonSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -91,10 +93,10 @@
             this.contenedorMenu.Controls.Add(this.botonSubMenuUno);
             this.contenedorMenu.Controls.Add(this.botonMenuPrincipal);
             this.contenedorMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.contenedorMenu.Location = new System.Drawing.Point(0, 164);
-            this.contenedorMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.contenedorMenu.Location = new System.Drawing.Point(0, 200);
+            this.contenedorMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contenedorMenu.Name = "contenedorMenu";
-            this.contenedorMenu.Size = new System.Drawing.Size(158, 122);
+            this.contenedorMenu.Size = new System.Drawing.Size(211, 150);
             this.contenedorMenu.TabIndex = 4;
             // 
             // botonSubMenuDos
@@ -104,11 +106,11 @@
             this.botonSubMenuDos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonSubMenuDos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonSubMenuDos.ForeColor = System.Drawing.Color.White;
-            this.botonSubMenuDos.Location = new System.Drawing.Point(0, 82);
-            this.botonSubMenuDos.Margin = new System.Windows.Forms.Padding(2);
+            this.botonSubMenuDos.Location = new System.Drawing.Point(0, 100);
+            this.botonSubMenuDos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonSubMenuDos.Name = "botonSubMenuDos";
-            this.botonSubMenuDos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.botonSubMenuDos.Size = new System.Drawing.Size(158, 41);
+            this.botonSubMenuDos.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.botonSubMenuDos.Size = new System.Drawing.Size(211, 50);
             this.botonSubMenuDos.TabIndex = 2;
             this.botonSubMenuDos.Text = "Submenú 2";
             this.botonSubMenuDos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -122,11 +124,11 @@
             this.botonSubMenuUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonSubMenuUno.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonSubMenuUno.ForeColor = System.Drawing.Color.White;
-            this.botonSubMenuUno.Location = new System.Drawing.Point(0, 41);
-            this.botonSubMenuUno.Margin = new System.Windows.Forms.Padding(2);
+            this.botonSubMenuUno.Location = new System.Drawing.Point(0, 50);
+            this.botonSubMenuUno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonSubMenuUno.Name = "botonSubMenuUno";
-            this.botonSubMenuUno.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.botonSubMenuUno.Size = new System.Drawing.Size(158, 41);
+            this.botonSubMenuUno.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.botonSubMenuUno.Size = new System.Drawing.Size(211, 50);
             this.botonSubMenuUno.TabIndex = 1;
             this.botonSubMenuUno.Text = "Submenú 1";
             this.botonSubMenuUno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,10 +143,10 @@
             this.botonMenuPrincipal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonMenuPrincipal.ForeColor = System.Drawing.Color.White;
             this.botonMenuPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.botonMenuPrincipal.Margin = new System.Windows.Forms.Padding(2);
+            this.botonMenuPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonMenuPrincipal.Name = "botonMenuPrincipal";
-            this.botonMenuPrincipal.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.botonMenuPrincipal.Size = new System.Drawing.Size(158, 41);
+            this.botonMenuPrincipal.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.botonMenuPrincipal.Size = new System.Drawing.Size(211, 50);
             this.botonMenuPrincipal.TabIndex = 0;
             this.botonMenuPrincipal.Text = "Menú principal";
             this.botonMenuPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,11 +160,11 @@
             this.botonConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonConfiguracion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonConfiguracion.ForeColor = System.Drawing.Color.White;
-            this.botonConfiguracion.Location = new System.Drawing.Point(0, 123);
-            this.botonConfiguracion.Margin = new System.Windows.Forms.Padding(2);
+            this.botonConfiguracion.Location = new System.Drawing.Point(0, 150);
+            this.botonConfiguracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonConfiguracion.Name = "botonConfiguracion";
-            this.botonConfiguracion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.botonConfiguracion.Size = new System.Drawing.Size(158, 41);
+            this.botonConfiguracion.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.botonConfiguracion.Size = new System.Drawing.Size(211, 50);
             this.botonConfiguracion.TabIndex = 3;
             this.botonConfiguracion.Text = "Configuración";
             this.botonConfiguracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,11 +178,11 @@
             this.botonInformacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonInformacion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonInformacion.ForeColor = System.Drawing.Color.White;
-            this.botonInformacion.Location = new System.Drawing.Point(0, 82);
-            this.botonInformacion.Margin = new System.Windows.Forms.Padding(2);
+            this.botonInformacion.Location = new System.Drawing.Point(0, 100);
+            this.botonInformacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonInformacion.Name = "botonInformacion";
-            this.botonInformacion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.botonInformacion.Size = new System.Drawing.Size(158, 41);
+            this.botonInformacion.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.botonInformacion.Size = new System.Drawing.Size(211, 50);
             this.botonInformacion.TabIndex = 2;
             this.botonInformacion.Text = "Crear Publicacion";
             this.botonInformacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -194,11 +196,11 @@
             this.botonTablero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonTablero.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonTablero.ForeColor = System.Drawing.Color.White;
-            this.botonTablero.Location = new System.Drawing.Point(0, 41);
-            this.botonTablero.Margin = new System.Windows.Forms.Padding(2);
+            this.botonTablero.Location = new System.Drawing.Point(0, 50);
+            this.botonTablero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonTablero.Name = "botonTablero";
-            this.botonTablero.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.botonTablero.Size = new System.Drawing.Size(158, 41);
+            this.botonTablero.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.botonTablero.Size = new System.Drawing.Size(211, 50);
             this.botonTablero.TabIndex = 1;
             this.botonTablero.Text = "Tablero";
             this.botonTablero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -210,10 +212,11 @@
             this.panelLogo.Controls.Add(this.botonMenu);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(158, 41);
+            this.panelLogo.Size = new System.Drawing.Size(211, 50);
             this.panelLogo.TabIndex = 0;
+            this.panelLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLogo_Paint);
             // 
             // botonMenu
             // 
@@ -222,9 +225,9 @@
             this.botonMenu.FlatAppearance.BorderSize = 0;
             this.botonMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonMenu.Location = new System.Drawing.Point(0, 0);
-            this.botonMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.botonMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonMenu.Name = "botonMenu";
-            this.botonMenu.Size = new System.Drawing.Size(38, 41);
+            this.botonMenu.Size = new System.Drawing.Size(51, 50);
             this.botonMenu.TabIndex = 0;
             this.botonMenu.UseVisualStyleBackColor = false;
             this.botonMenu.Click += new System.EventHandler(this.BotonMenu_Click);
@@ -235,10 +238,10 @@
             this.panelEncabezado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(50)))));
             this.panelEncabezado.Controls.Add(this.botonCerrar);
             this.panelEncabezado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEncabezado.Location = new System.Drawing.Point(158, 0);
-            this.panelEncabezado.Margin = new System.Windows.Forms.Padding(2);
+            this.panelEncabezado.Location = new System.Drawing.Point(211, 0);
+            this.panelEncabezado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelEncabezado.Name = "panelEncabezado";
-            this.panelEncabezado.Size = new System.Drawing.Size(592, 41);
+            this.panelEncabezado.Size = new System.Drawing.Size(789, 50);
             this.panelEncabezado.TabIndex = 1;
             this.panelEncabezado.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelEncabezado_MouseDown);
             // 
@@ -249,10 +252,10 @@
             this.botonCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonCerrar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botonCerrar.ForeColor = System.Drawing.Color.White;
-            this.botonCerrar.Location = new System.Drawing.Point(554, 0);
-            this.botonCerrar.Margin = new System.Windows.Forms.Padding(2);
+            this.botonCerrar.Location = new System.Drawing.Point(738, 0);
+            this.botonCerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.botonCerrar.Name = "botonCerrar";
-            this.botonCerrar.Size = new System.Drawing.Size(38, 41);
+            this.botonCerrar.Size = new System.Drawing.Size(51, 50);
             this.botonCerrar.TabIndex = 0;
             this.botonCerrar.Text = "X";
             this.botonCerrar.UseVisualStyleBackColor = true;
@@ -262,10 +265,10 @@
             // 
             this.panelPrincipal.BackColor = System.Drawing.Color.White;
             this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPrincipal.Location = new System.Drawing.Point(158, 41);
+            this.panelPrincipal.Location = new System.Drawing.Point(211, 50);
             this.panelPrincipal.Margin = new System.Windows.Forms.Padding(0);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(592, 447);
+            this.panelPrincipal.Size = new System.Drawing.Size(789, 551);
             this.panelPrincipal.TabIndex = 2;
             this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
             // 
@@ -279,16 +282,34 @@
             this.transicionMenu.Interval = 10;
             this.transicionMenu.Tick += new System.EventHandler(this.TransicionMenu_Tick);
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 501);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(211, 50);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Configuración";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormularioPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 488);
+            this.ClientSize = new System.Drawing.Size(1000, 601);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panelEncabezado);
             this.Controls.Add(this.panelBarraLateral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormularioPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aplicación con Barra Lateral";
@@ -318,6 +339,7 @@
         private System.Windows.Forms.Panel panelPrincipal;
         private System.Windows.Forms.Timer transicionBarra;
         private System.Windows.Forms.Timer transicionMenu;
+        private System.Windows.Forms.Button button1;
     }
 }
 
