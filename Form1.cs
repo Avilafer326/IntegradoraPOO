@@ -21,10 +21,14 @@ namespace IntegradoraPOO
             InitializeComponent();
             label1.Text = "¿No tienes cuenta?";
             linkLabel1.Text = "Crea una aquí";
-
+            label2.ForeColor = Color.White;
+            label3.ForeColor = Color.White;
+            label2.BackColor = Color.Transparent;
             button1.ForeColor = Color.White;
             RedondearBoton(button1, 60);
             Estilizado(button1, 25);
+
+            RedondearPanel(panel1, 30);
 
             this.DoubleBuffered = true;
             this.Paint += Form1_Paint;
@@ -118,9 +122,9 @@ namespace IntegradoraPOO
 
 
 
-        //-----------------Métodos para el diseño del form-----------------//
+        //---------------------------------------------------Métodos para el diseño del form-----------------//
 
-        //---------Diseño del botón---------//
+        //--------------------------------------------------------------------------Diseño del botón---------//
         private void RedondearBoton(Button btn, int radio)
         {
             GraphicsPath path = new GraphicsPath();
@@ -143,6 +147,7 @@ namespace IntegradoraPOO
             Color.FromArgb(255, 255, 100, 150)   // magenta suave
         };
 
+        //--------------------------------------------------Diseño del botón con animacion--------------------
         private void Estilizado(Button btn, int radio)
         {
             // Mantiene su fuente, texto y tamaño originales
@@ -191,7 +196,7 @@ namespace IntegradoraPOO
 
             // Animación del degradado
 
-            // Dibuja el degradado animado SOLO debajo del texto
+            // Dibuja el degradado animado solo debajo del texto
 
             gradienteTimer = new Timer();
             gradienteTimer.Interval = 60; // velocidad
@@ -224,12 +229,6 @@ namespace IntegradoraPOO
                 (int)(colores[idx1].B + (colores[idx2].B - colores[idx1].B) * frac)
             );
         }
-
-
-
-
-
-
         //Métodos para pintar el fondo
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -320,7 +319,18 @@ namespace IntegradoraPOO
             if (t < 2.0 / 3.0) return p + (q - p) * (2.0 / 3.0 - t) * 6;
             return p;
         }
-
+        //Redondear el panel del formulario del login
+        private void RedondearPanel(Panel panel, int radio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+            path.AddArc(new Rectangle(panel.Width - radio, 0, radio, radio), 270, 90);
+            path.AddArc(new Rectangle(panel.Width - radio, panel.Height - radio, radio, radio), 0, 90);
+            path.AddArc(new Rectangle(0, panel.Height - radio, radio, radio), 90, 90);
+            path.CloseFigure();
+            panel.Region = new Region(path);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
