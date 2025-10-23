@@ -68,6 +68,7 @@ namespace IntegradoraPOO
             this.button2.TabIndex = 3;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ControlInformacion
             // 
@@ -103,7 +104,7 @@ namespace IntegradoraPOO
                     comando.Parameters.AddWithValue("@Contenido", richTextBox1.Text);
                     comando.Parameters.AddWithValue("@Fecha", DateTime.Now);
                     comando.ExecuteNonQuery();
-                    MessageBox.Show("se logro");
+                    MessageBox.Show("publicacion creada");
                 }
                 catch (Exception ex)
                 {
@@ -112,6 +113,12 @@ namespace IntegradoraPOO
                 connection.Close();
             }
         
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("cancelado");
+            richTextBox1.Clear();
         }
     }
 }

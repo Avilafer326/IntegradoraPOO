@@ -19,10 +19,14 @@ namespace IntegradoraPOO
         {
             InitializeComponent();
         }
+
+        //llamada para abrir la conexion
         MySqlConnection connection = Conexion.conexion();
         MySqlCommand codigo = new MySqlCommand();
        
         string dominioCorreo = "@utch.edu.mx";
+
+        //para verificar que contenga una mayuscula
         public bool ContieneMayuscula(string contrasena)
         {
             string patronMayuscula = @"^.*[A-Z].*$";
@@ -30,12 +34,14 @@ namespace IntegradoraPOO
         }
         public bool VerificarCorreo(string correo, string dominioInstitucional)
         {
-       
+            //para verificar correo en minusculas
             return correo.ToLower().EndsWith(dominioInstitucional.ToLower());
         }
+
+        //para verificar si el usuario esta ocupado
         public bool UsuarioOcupado(string newUser)
         {
-
+            //
             string cadena = "SELECT COUNT(*) FROM usuarios WHERE User = @user";
 
             using (MySqlCommand comando = new MySqlCommand(cadena, connection))
@@ -66,9 +72,13 @@ namespace IntegradoraPOO
                 }
             }
         }
+
+        //crear el usuario con verificaciones
         private void ConfirmarButton_Click(object sender, EventArgs e)
         {
             codigo.Connection = connection;
+
+            //verificaciones de creacion de usuario
 
             if (!string.IsNullOrWhiteSpace(UsuarioTextBox.Text) && !string.IsNullOrWhiteSpace(CorreoText.Text) && !string.IsNullOrWhiteSpace(ContraText.Text) && !string.IsNullOrWhiteSpace(ContraVeriText.Text))
             {
@@ -87,7 +97,7 @@ namespace IntegradoraPOO
                                         connection.Open();
                                         MySqlCommand codigo = new MySqlCommand();
                                         codigo.Connection = connection;
-
+                                        //comando para añadir el usuario a la base de datos
                                         codigo.CommandText = "INSERT INTO usuarios (User, Contra, Correo, FechaCreacion) " +
                                                     "VALUES(@User, @Contra,@Correo, @Fecha)";
                                         codigo.Parameters.AddWithValue("@User", UsuarioTextBox.Text);
@@ -113,6 +123,7 @@ namespace IntegradoraPOO
                                     }
                                     connection.Close();
                                 }
+                                //en caso de no verificarse correctamente
                                 else { MessageBox.Show("las contraseñas no coinciden"); ; ContraText.Clear(); ContraVeriText.Clear(); }
                             }
                             else { MessageBox.Show("la contraseña debe tener al menos 8 Caracteres e incluir una mayuscula"); ContraText.Clear(); ContraVeriText.Clear(); }

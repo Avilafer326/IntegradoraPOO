@@ -190,11 +190,7 @@ namespace IntegradoraPOO
                 flowLayoutPanel2.Controls.Add(commentUC);
             }
         }
-        public void SetGroupBoxState(bool isVisible)
-        {
-            // Asumiendo que tu GroupBox se llama 'groupBox1' en este control.
-            groupBox2.Visible = isVisible;
-        }
+      
         public void MostrarGroupBoxComentarios(int idPost)
         {
             // Almacena el ID de la publicación que disparó el evento para usarlo en button8_Click.

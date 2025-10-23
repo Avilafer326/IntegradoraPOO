@@ -20,6 +20,7 @@ namespace IntegradoraPOO
         public Form1()
         {
             InitializeComponent();
+            // se cambia el texto de las etiquetas
             label1.Text = "¿No tienes cuenta?";
             linkLabel1.Text = "Crea una aquí";
 
@@ -27,6 +28,7 @@ namespace IntegradoraPOO
             this.Paint += Form1_Paint;
 
         }
+        //llamas a otras ventanas y connecion a mysql
         CrearCuenta llamdaCrear = new CrearCuenta();
         MySqlConnection connection = Conexion.conexion();
         MySqlCommand codigo = new MySqlCommand();
@@ -78,7 +80,7 @@ namespace IntegradoraPOO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("=" + ex);
+                MessageBox.Show("error");
                 return false;
             }
 

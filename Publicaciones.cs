@@ -234,7 +234,7 @@ namespace IntegradoraPOO
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("editada");
+                        MessageBox.Show("Publicacion editada");
                         this.Update();
                         richTextBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
                         groupBox1.Visible = false;

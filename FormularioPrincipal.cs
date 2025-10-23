@@ -9,6 +9,7 @@ namespace IntegradoraPOO
 {
     public partial class FormularioPrincipal : Form
     {
+        //tamaño de las barras y menu
         private const int AnchoBarraExpandida = 210;
         private const int AnchoBarraContraida = 58;
         private const int AlturaMenuExpandido = 150;
@@ -18,6 +19,7 @@ namespace IntegradoraPOO
         private bool menuExpandido = false;
         public string usuariologeado;
 
+        //llamada a otros paneles
         private ControlTablero controlTablero;
         private ControlInformacion controlInformacion;
         private ControlConfiguracion controlConfiguracion;
@@ -25,7 +27,7 @@ namespace IntegradoraPOO
         private readonly ControlSubMenuDos controlSubMenuDos = new ControlSubMenuDos();
 
     
-      
+        //se inicia el formulario principal pasando el usuario del login
         public FormularioPrincipal(string usuario)
         {
         
@@ -38,7 +40,8 @@ namespace IntegradoraPOO
 
 
 
-
+        //las objetos a iniciar en la configuracion inicial
+        //paneles pasando el usuario logeado
         private void ConfigurarEstadoInicial()
         {
  
@@ -61,7 +64,7 @@ namespace IntegradoraPOO
         {
             transicionMenu.Start();
         }
-
+        //el movimineto de la barra
         private void TransicionBarra_Tick(object sender, EventArgs e)
         {
             if (barraExpandida)
@@ -86,6 +89,7 @@ namespace IntegradoraPOO
             }
         }
        
+        //menu transicion
         private void TransicionMenu_Tick(object sender, EventArgs e)
         {
             if (!menuExpandido)
@@ -109,18 +113,16 @@ namespace IntegradoraPOO
                 }
             }
         }
-
+        //se muestra el panel y se cargan las publicaciones
         private void BotonTablero_Click(object sender, EventArgs e)
         {
-            controlTablero.CargarPublicaciones2();
+            
             MostrarControl(controlTablero);
             controlTablero.CargarPublicaciones2();
-           
-           
-            
-    
-        }
 
+        }
+        
+        //se muestra el panel de mostrorcontrol(crear publicacion)
         private void BotonInformacion_Click(object sender, EventArgs e)
         {
             
@@ -128,9 +130,10 @@ namespace IntegradoraPOO
           
         }
 
+        //boton para abrir el panel de configuraion (mis publicaciones)
         private void BotonConfiguracion_Click(object sender, EventArgs e)
         {
-            controlConfiguracion.CargarPublicaciones();
+           
             MostrarControl(controlConfiguracion);
             controlConfiguracion.CargarPublicaciones();
         }
@@ -144,7 +147,7 @@ namespace IntegradoraPOO
         {
             MostrarControl(controlSubMenuDos);
         }
-
+        //se cierra el form y se va al inicio
         private void BotonSalir_Click(object sender, EventArgs e)
         {
             Form1 llamada = new Form1();
@@ -158,7 +161,8 @@ namespace IntegradoraPOO
             Close();
            
         }
-
+        //se muestra el panel mostrarcontrol 
+        //se rellena el panel con dockfill
         private void MostrarControl(UserControl control)
         {
        
@@ -174,6 +178,7 @@ namespace IntegradoraPOO
 
         private void RefrescarElementosBarra()
         {
+            //nombre de los elementos en la barra con sus tamaños y su acomodo
             bool mostrarTexto = barraExpandida;
             botonTablero.Text = mostrarTexto ? "Tablero" : "T";
             botonMenuPrincipal.Text = mostrarTexto ? "Menú principal" : "M";
@@ -209,7 +214,7 @@ namespace IntegradoraPOO
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
-
+        //color de las cosas
         private void BotonMenu_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
