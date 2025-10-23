@@ -1,16 +1,15 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Contracts;
-using System.Drawing;
-using System.Drawing.Drawing2D;
+﻿using System;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using System.Drawing.Drawing2D;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 
 namespace IntegradoraPOO
@@ -23,10 +22,14 @@ namespace IntegradoraPOO
             label1.Text = "¿No tienes cuenta?";
             linkLabel1.Text = "Crea una aquí";
 
+            button1.ForeColor = Color.White;
+            RedondearBoton(button1, 60);
+            Estilizado(button1, 25);
+
             this.DoubleBuffered = true;
             this.Paint += Form1_Paint;
-
         }
+
         CrearCuenta llamdaCrear = new CrearCuenta();
         MySqlConnection connection = Conexion.conexion();
         MySqlCommand codigo = new MySqlCommand();
@@ -113,6 +116,114 @@ namespace IntegradoraPOO
 
 
 
+
+
+        //-----------------Métodos para el diseño del form-----------------//
+
+        //---------Diseño del botón---------//
+        private void RedondearBoton(Button btn, int radio)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+            path.AddArc(new Rectangle(btn.Width - radio, 0, radio, radio), 270, 90);
+            path.AddArc(new Rectangle(btn.Width - radio, btn.Height - radio, radio, radio), 0, 90);
+            path.AddArc(new Rectangle(0, btn.Height - radio, radio, radio), 90, 90);
+            path.CloseFigure();
+            btn.Region = new Region(path);
+        }
+        // Variables globales para la animación
+        private Timer gradienteTimer;
+        private float animacionOffset = 0f;
+        private readonly Color[] coloresDegradado = new Color[]
+        {
+            Color.FromArgb(255, 255, 120, 120),  // rojo suave
+            Color.FromArgb(255, 255, 180, 80),   // amarillo cálido
+            Color.FromArgb(255, 255, 130, 200),  // rosa pastel
+            Color.FromArgb(255, 255, 100, 150)   // magenta suave
+        };
+
+        private void Estilizado(Button btn, int radio)
+        {
+            // Mantiene su fuente, texto y tamaño originales
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = Color.Transparent;
+            btn.Font = btn.Font;
+            //btn.DoubleBuffered = true; // evita parpadeo
+
+            // Crear la forma redondeada del botón
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(new Rectangle(0, 0, radio, radio), 180, 90);
+            path.AddArc(new Rectangle(btn.Width - radio, 0, radio, radio), 270, 90);
+            path.AddArc(new Rectangle(btn.Width - radio, btn.Height - radio, radio, radio), 0, 90);
+            path.AddArc(new Rectangle(0, btn.Height - radio, radio, radio), 90, 90);
+            path.CloseFigure();
+            btn.Region = new Region(path);
+
+
+
+            btn.Paint += (s, e) =>
+            {
+                Graphics g = e.Graphics;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                Rectangle rect = btn.ClientRectangle;
+
+                // Fondo degradado dinámico
+                using (LinearGradientBrush brush = new LinearGradientBrush(
+                    rect,
+                    InterpolarColor(animacionOffset, coloresDegradado),
+                    InterpolarColor(animacionOffset + 0.3f, coloresDegradado),
+                    45f))
+                {
+                    g.FillPath(brush, path);
+                }
+
+                // Contorno blanco translúcido
+                using (Pen pen = new Pen(Color.FromArgb(150, Color.White), 2))
+                {
+                    g.DrawPath(pen, path);
+                }
+
+                TextRenderer.DrawText(g, btn.Text, btn.Font, rect, btn.ForeColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+            };
+
+            // Animación del degradado
+
+            // Dibuja el degradado animado SOLO debajo del texto
+
+            gradienteTimer = new Timer();
+            gradienteTimer.Interval = 60; // velocidad
+            gradienteTimer.Tick += (s, e) =>
+            {
+                animacionOffset += 0.02f;
+                if (animacionOffset > 1f) animacionOffset = 0f;
+                btn.Invalidate(); // fuerza repintado
+            };
+            gradienteTimer.Start();
+        }
+
+
+
+
+        // Función auxiliar: interpola entre colores para suavizar la animación
+        private Color InterpolarColor(float t, Color[] colores)
+        {
+            t = t % 1f;
+            int num = colores.Length;
+            float pos = t * num;
+            int idx1 = (int)Math.Floor(pos) % num;
+            int idx2 = (idx1 + 1) % num;
+            float frac = pos - (float)Math.Floor(pos);
+
+            return Color.FromArgb(
+                255,
+                (int)(colores[idx1].R + (colores[idx2].R - colores[idx1].R) * frac),
+                (int)(colores[idx1].G + (colores[idx2].G - colores[idx1].G) * frac),
+                (int)(colores[idx1].B + (colores[idx2].B - colores[idx1].B) * frac)
+            );
+        }
 
 
 
@@ -236,6 +347,11 @@ namespace IntegradoraPOO
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
