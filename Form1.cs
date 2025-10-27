@@ -28,8 +28,8 @@ namespace IntegradoraPOO
             button1.ForeColor = Color.White;
             RedondearBoton(button1, 60);
             Estilizado(button1, 25);
-
             RedondearPanel(panel1, 30);
+            
             TextHolders();
 
             this.DoubleBuffered = true;

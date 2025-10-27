@@ -39,8 +39,8 @@
             this.ContraVeriText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CancelarButton = new System.Windows.Forms.Button();
-            this.ConfirmarButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ConfirmarButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             // 
             this.UsuarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsuarioTextBox.Location = new System.Drawing.Point(23, 74);
-            this.UsuarioTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UsuarioTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UsuarioTextBox.Name = "UsuarioTextBox";
             this.UsuarioTextBox.Size = new System.Drawing.Size(279, 34);
             this.UsuarioTextBox.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             this.CorreoText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CorreoText.Location = new System.Drawing.Point(23, 179);
-            this.CorreoText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CorreoText.Margin = new System.Windows.Forms.Padding(4);
             this.CorreoText.Name = "CorreoText";
             this.CorreoText.Size = new System.Drawing.Size(279, 34);
             this.CorreoText.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             this.ContraText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContraText.Location = new System.Drawing.Point(23, 287);
-            this.ContraText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContraText.Margin = new System.Windows.Forms.Padding(4);
             this.ContraText.Name = "ContraText";
             this.ContraText.Size = new System.Drawing.Size(279, 34);
             this.ContraText.TabIndex = 6;
@@ -119,7 +119,7 @@
             // 
             this.ContraVeriText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContraVeriText.Location = new System.Drawing.Point(23, 391);
-            this.ContraVeriText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContraVeriText.Margin = new System.Windows.Forms.Padding(4);
             this.ContraVeriText.Name = "ContraVeriText";
             this.ContraVeriText.Size = new System.Drawing.Size(279, 34);
             this.ContraVeriText.TabIndex = 8;
@@ -138,26 +138,14 @@
             // CancelarButton
             // 
             this.CancelarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelarButton.Location = new System.Drawing.Point(353, 484);
-            this.CancelarButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelarButton.Location = new System.Drawing.Point(301, 559);
+            this.CancelarButton.Margin = new System.Windows.Forms.Padding(4);
             this.CancelarButton.Name = "CancelarButton";
             this.CancelarButton.Size = new System.Drawing.Size(280, 57);
             this.CancelarButton.TabIndex = 9;
             this.CancelarButton.Text = "Cancelar";
             this.CancelarButton.UseVisualStyleBackColor = true;
             this.CancelarButton.Click += new System.EventHandler(this.CancelarButton_Click);
-            // 
-            // ConfirmarButton
-            // 
-            this.ConfirmarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmarButton.Location = new System.Drawing.Point(55, 484);
-            this.ConfirmarButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ConfirmarButton.Name = "ConfirmarButton";
-            this.ConfirmarButton.Size = new System.Drawing.Size(280, 57);
-            this.ConfirmarButton.TabIndex = 10;
-            this.ConfirmarButton.Text = "Crear";
-            this.ConfirmarButton.UseVisualStyleBackColor = true;
-            this.ConfirmarButton.Click += new System.EventHandler(this.ConfirmarButton_Click);
             // 
             // panel1
             // 
@@ -169,20 +157,33 @@
             this.panel1.Controls.Add(this.CorreoText);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.ContraText);
-            this.panel1.Location = new System.Drawing.Point(22, 12);
+            this.panel1.Location = new System.Drawing.Point(57, 58);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(484, 465);
             this.panel1.TabIndex = 11;
+            // 
+            // ConfirmarButton
+            // 
+            this.ConfirmarButton.BackColor = System.Drawing.Color.White;
+            this.ConfirmarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmarButton.Location = new System.Drawing.Point(59, 559);
+            this.ConfirmarButton.Margin = new System.Windows.Forms.Padding(4);
+            this.ConfirmarButton.Name = "ConfirmarButton";
+            this.ConfirmarButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ConfirmarButton.Size = new System.Drawing.Size(180, 66);
+            this.ConfirmarButton.TabIndex = 12;
+            this.ConfirmarButton.Text = "Entrar";
+            this.ConfirmarButton.UseVisualStyleBackColor = false;
             // 
             // CrearCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1188, 677);
             this.Controls.Add(this.ConfirmarButton);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.CancelarButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CrearCuenta";
             this.Text = "CrearCuenta";
             this.Load += new System.EventHandler(this.CrearCuenta_Load);
@@ -204,7 +205,7 @@
         private System.Windows.Forms.TextBox ContraVeriText;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button CancelarButton;
-        private System.Windows.Forms.Button ConfirmarButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button ConfirmarButton;
     }
 }
