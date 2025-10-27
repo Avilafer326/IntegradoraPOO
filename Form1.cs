@@ -16,6 +16,7 @@ namespace IntegradoraPOO
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace IntegradoraPOO
             Estilizado(button1, 25);
 
             RedondearPanel(panel1, 30);
+            TextHolders();
 
             this.DoubleBuffered = true;
             this.Paint += Form1_Paint;
@@ -114,9 +116,18 @@ namespace IntegradoraPOO
 
         }
 
+        //-----------------------Parte para los textBoxs---------------------//
 
+        public void TextHolders()
+        {
+            // Configurar placeholder para usuario
+            UsuarioText.Text = "Usuario";
+            UsuarioText.ForeColor = Color.Gray;
 
-
+            // Configurar placeholder para contraseña
+            ContraText.Text = "Contraseña";
+            ContraText.ForeColor = Color.Gray;
+        }
 
 
 
@@ -343,7 +354,7 @@ namespace IntegradoraPOO
 
         private void UsuarioText_TextChanged(object sender, EventArgs e)
         {
-
+            UsuarioText.ForeColor = Color.Black;
         }
 
         private void ContraLabel_Click(object sender, EventArgs e)
@@ -353,6 +364,7 @@ namespace IntegradoraPOO
 
         private void ContraText_TextChanged(object sender, EventArgs e)
         {
+            ContraText.ForeColor = Color.Black;
 
         }
 
@@ -364,6 +376,20 @@ namespace IntegradoraPOO
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UsuarioText_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UsuarioText_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(UsuarioText.Text))
+            {
+                UsuarioText.Text = "Usuario";
+                UsuarioText.ForeColor = Color.Black;
+            }
         }
     }
 }
