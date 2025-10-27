@@ -319,7 +319,7 @@ namespace IntegradoraPOO
             if (t < 2.0 / 3.0) return p + (q - p) * (2.0 / 3.0 - t) * 6;
             return p;
         }
-        //Redondear el panel del formulario del login
+        //Redondear el panel del formulario del log in
         private void RedondearPanel(Panel panel, int radio)
         {
             GraphicsPath path = new GraphicsPath();
