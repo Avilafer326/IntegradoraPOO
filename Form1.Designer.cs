@@ -40,9 +40,12 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -51,23 +54,25 @@
             // 
             this.UsuarioLabel.AutoSize = true;
             this.UsuarioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsuarioLabel.Location = new System.Drawing.Point(101, 22);
+            this.UsuarioLabel.Location = new System.Drawing.Point(297, 568);
             this.UsuarioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UsuarioLabel.Name = "UsuarioLabel";
             this.UsuarioLabel.Size = new System.Drawing.Size(115, 31);
             this.UsuarioLabel.TabIndex = 0;
             this.UsuarioLabel.Text = "Usuario";
+            this.UsuarioLabel.Visible = false;
             this.UsuarioLabel.Click += new System.EventHandler(this.UsuarioLabel_Click);
             // 
             // UsuarioText
             // 
             this.UsuarioText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsuarioText.Location = new System.Drawing.Point(79, 92);
+            this.UsuarioText.Location = new System.Drawing.Point(79, 165);
             this.UsuarioText.Margin = new System.Windows.Forms.Padding(4);
             this.UsuarioText.Name = "UsuarioText";
             this.UsuarioText.Size = new System.Drawing.Size(287, 37);
             this.UsuarioText.TabIndex = 1;
             this.UsuarioText.TextChanged += new System.EventHandler(this.UsuarioText_TextChanged);
+            this.UsuarioText.Leave += new System.EventHandler(this.UsuarioText_Leave);
             // 
             // contextMenuStrip1
             // 
@@ -89,12 +94,13 @@
             // 
             this.ContraLabel.AutoSize = true;
             this.ContraLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContraLabel.Location = new System.Drawing.Point(101, 174);
+            this.ContraLabel.Location = new System.Drawing.Point(420, 568);
             this.ContraLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ContraLabel.Name = "ContraLabel";
             this.ContraLabel.Size = new System.Drawing.Size(174, 31);
             this.ContraLabel.TabIndex = 3;
             this.ContraLabel.Text = "Contraseña:";
+            this.ContraLabel.Visible = false;
             this.ContraLabel.Click += new System.EventHandler(this.ContraLabel_Click);
             // 
             // button1
@@ -152,10 +158,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.UsuarioLabel);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.UsuarioText);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.ContraLabel);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.ContraText);
             this.panel1.Controls.Add(this.button1);
@@ -164,6 +169,28 @@
             this.panel1.Size = new System.Drawing.Size(495, 482);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button4
+            // 
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(691, 570);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(55, 37);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "button3";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(614, 568);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(55, 37);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             // 
             // pictureBox1
             // 
@@ -199,11 +226,27 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Desliza. Descubre. Comenta.";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(36, 45);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(397, 76);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Únete a la conversación \r\n             más honesta de la UT.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 625);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.UsuarioLabel);
+            this.Controls.Add(this.ContraLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -237,6 +280,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

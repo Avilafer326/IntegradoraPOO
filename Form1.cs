@@ -16,6 +16,7 @@ namespace IntegradoraPOO
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -27,8 +28,9 @@ namespace IntegradoraPOO
             button1.ForeColor = Color.White;
             RedondearBoton(button1, 60);
             Estilizado(button1, 25);
-
             RedondearPanel(panel1, 30);
+            
+            TextHolders();
 
             this.DoubleBuffered = true;
             this.Paint += Form1_Paint;
@@ -114,9 +116,18 @@ namespace IntegradoraPOO
 
         }
 
+        //-----------------------Parte para los textBoxs---------------------//
 
+        public void TextHolders()
+        {
+            // Configurar placeholder para usuario
+            UsuarioText.Text = "Usuario";
+            UsuarioText.ForeColor = Color.Gray;
 
-
+            // Configurar placeholder para contraseña
+            ContraText.Text = "Contraseña";
+            ContraText.ForeColor = Color.Gray;
+        }
 
 
 
@@ -319,7 +330,7 @@ namespace IntegradoraPOO
             if (t < 2.0 / 3.0) return p + (q - p) * (2.0 / 3.0 - t) * 6;
             return p;
         }
-        //Redondear el panel del formulario del login
+        //Redondear el panel del formulario del log in
         private void RedondearPanel(Panel panel, int radio)
         {
             GraphicsPath path = new GraphicsPath();
@@ -343,7 +354,7 @@ namespace IntegradoraPOO
 
         private void UsuarioText_TextChanged(object sender, EventArgs e)
         {
-
+            UsuarioText.ForeColor = Color.Black;
         }
 
         private void ContraLabel_Click(object sender, EventArgs e)
@@ -353,6 +364,7 @@ namespace IntegradoraPOO
 
         private void ContraText_TextChanged(object sender, EventArgs e)
         {
+            ContraText.ForeColor = Color.Black;
 
         }
 
@@ -364,6 +376,20 @@ namespace IntegradoraPOO
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UsuarioText_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UsuarioText_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(UsuarioText.Text))
+            {
+                UsuarioText.Text = "Usuario";
+                UsuarioText.ForeColor = Color.Black;
+            }
         }
     }
 }
